@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ETIYA_Akademi.iml" filepath="$PROJECT_DIR$/.idea/ETIYA_Akademi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/abstractClasses/abstractClasses.iml" filepath="$PROJECT_DIR$/javaDemos/abstractClasses/abstractClasses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/abstractDemo/abstractDemo.iml" filepath="$PROJECT_DIR$/javaDemos/abstractDemo/abstractDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/arkadasSayilar/arkadasSayilar.iml" filepath="$PROJECT_DIR$/javaDemos/arkadasSayilar/arkadasSayilar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/arraysDemo/arraysDemo.iml" filepath="$PROJECT_DIR$/javaDemos/arraysDemo/arraysDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/classes/classes.iml" filepath="$PROJECT_DIR$/javaDemos/classes/classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/classesWithAttributes/classesWithAttributes.iml" filepath="$PROJECT_DIR$/javaDemos/classesWithAttributes/classesWithAttributes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/conditionals/conditionals.iml" filepath="$PROJECT_DIR$/javaDemos/conditionals/conditionals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/datatypes/datatypes.iml" filepath="$PROJECT_DIR$/javaDemos/datatypes/datatypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/inheritance/inheritance.iml" filepath="$PROJECT_DIR$/javaDemos/inheritance/inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/inheritanceDemo/inheritanceDemo.iml" filepath="$PROJECT_DIR$/javaDemos/inheritanceDemo/inheritanceDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/interfaceDemo/interfaceDemo.iml" filepath="$PROJECT_DIR$/javaDemos/interfaceDemo/interfaceDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/interfaces/interfaces.iml" filepath="$PROJECT_DIR$/javaDemos/interfaces/interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/loopDemo/loopDemo.iml" filepath="$PROJECT_DIR$/javaDemos/loopDemo/loopDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/merhodOverloading/merhodOverloading.iml" filepath="$PROJECT_DIR$/javaDemos/merhodOverloading/merhodOverloading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/methods/methods.iml" filepath="$PROJECT_DIR$/javaDemos/methods/methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/methods2/methods2.iml" filepath="$PROJECT_DIR$/javaDemos/methods2/methods2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/miniProjeAsalSayi/miniProjeAsalSayi.iml" filepath="$PROJECT_DIR$/javaDemos/miniProjeAsalSayi/miniProjeAsalSayi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/mukemmelSayilar/mukemmelSayilar.iml" filepath="$PROJECT_DIR$/javaDemos/mukemmelSayilar/mukemmelSayilar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/multiDimensionalArrayDemo/multiDimensionalArrayDemo.iml" filepath="$PROJECT_DIR$/javaDemos/multiDimensionalArrayDemo/multiDimensionalArrayDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/oop/oop.iml" filepath="$PROJECT_DIR$/javaDemos/oop/oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/overriding/overriding.iml" filepath="$PROJECT_DIR$/javaDemos/overriding/overriding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/polymorphismDemo/polymorphismDemo.iml" filepath="$PROJECT_DIR$/javaDemos/polymorphismDemo/polymorphismDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/reCapDemo-1/reCapDemo-1.iml" filepath="$PROJECT_DIR$/javaDemos/reCapDemo-1/reCapDemo-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/reCapDemo-2/reCapDemo-2.iml" filepath="$PROJECT_DIR$/javaDemos/reCapDemo-2/reCapDemo-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/reCapDemo_classes/reCapDemo_classes.iml" filepath="$PROJECT_DIR$/javaDemos/reCapDemo_classes/reCapDemo_classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/sayiBulma/sayiBulma.iml" filepath="$PROJECT_DIR$/javaDemos/sayiBulma/sayiBulma.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/sesliHarfler/sesliHarfler.iml" filepath="$PROJECT_DIR$/javaDemos/sesliHarfler/sesliHarfler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/staticDemo/staticDemo.iml" filepath="$PROJECT_DIR$/javaDemos/staticDemo/staticDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/stringsDemo/stringsDemo.iml" filepath="$PROJECT_DIR$/javaDemos/stringsDemo/stringsDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/switchDemo/switchDemo.iml" filepath="$PROJECT_DIR$/javaDemos/switchDemo/switchDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaDemos/variables/variables.iml" filepath="$PROJECT_DIR$/javaDemos/variables/variables.iml" />
+    </modules>
+  </component>
+</project>
