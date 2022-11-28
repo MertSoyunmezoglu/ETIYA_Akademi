@@ -189,7 +189,7 @@ order by name asc
 ![](q_images/q9-between.png)
 
  
-## ✨ 10-) Baş harflerine göre sehir listesini getiren sorgu
+## ✨ 10-) Ürün teslimat fiyat toplamını getiren sorgu
 ```
 select sum(shipping_price) from baskets
 ```
