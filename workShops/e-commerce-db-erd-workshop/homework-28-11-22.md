@@ -46,9 +46,7 @@ on ci.country_id = co.id
 ```
 ![](q_images/inner-join1.png)
 ![](q_images/inner-join2.png)
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+
 
 ## ✨Left Join
 ```
@@ -57,6 +55,8 @@ watch the results in the right.
     	on p.product_id = pr.id
 ```
 ![](q_images/left-join.png)
+
+
 ## ✨Right Join
 ```
 > select * from product_categories p
@@ -64,6 +64,8 @@ watch the results in the right.
         on p.category_id = c.id
 ```
 ![](q_images/right-join.png)
+
+
 ## ✨Full Outer Join
 ```
 > select *
@@ -74,6 +76,8 @@ from product_categories p
        on p.product_id = pr.id
 ```
 ![](q_images/full-outer1.png)
+
+
 ## ✨ 1-) İstanbul ve Ankarada yaşayan müşterileri listeleyin
 ```
 select ci.name as "Şehir", us.email, ind.first_name, ind.last_name  
@@ -95,12 +99,16 @@ on t.city_id = ci.id
 Where ci.name in('Ankara','İstanbul')
 ```
 ![](q_images/q1.png)
+
+
 ## ✨ 2-) 100 TL ve 200 TL arasında bulunan ürünlerin isimleri ve fiyatlarını listeleyen sorgu
 ```
 Select name, unit_price from products
 where unit_price between 100 and 200
 ```
 ![](q_images/q2-between.png)
+
+
 ## ✨ 3-) Şehirlerdeki müşteri sayısını getiren sorgu
 ```
 select ci.name as "Şehir",count(*) "Müşteri Sayısı"   from customers c
@@ -121,12 +129,15 @@ on t.city_id = ci.id
 group by ci.name
 ```
 ![](q_images/q3-count-groupBy.png)
+
+
 ## ✨ 4-) Son üç siparişin ortalama fiyitanı getiren sorgu
 ```
 select avg(total_price) from orders  
 limit 3
 ```
 ![](q_images/q4-average.png)
+
 
 ## ✨ 5-) Insert ile veri ekleme sorgusu
 ```
@@ -137,6 +148,7 @@ values ('1','1','İş Adresi','Ytü teknopark')
 ![](q_images/q5-insert-before.png)
 ![](q_images/q5-insert-after.png)
 
+
 ## ✨ 6-) Hangi ürünün hangi kategoride olduğunu gösteren sorgu
 ```
 select c.name as "Kategori",pr.name as "Ürün" from product_categories pc
@@ -146,6 +158,8 @@ inner join categories c
 on c.id= pr.id
 group by c.name,pr.name
 ```
+
+
 ![](q_images/q6-innerJoin-groupBy.png)
 ## ✨ 7-) ürünün fiyatını güncelleyen sorgu
 ```
@@ -155,6 +169,7 @@ where unit_price=150
 ![](q_images/q7-update-before.png)
 ![](q_images/q7-update-after.png)
 
+
 ## ✨ 8-) Seçilen içeriği silen sorgu
 ```
 delete from delivery_options
@@ -162,6 +177,8 @@ where id=4
 ```
 ![](q_images/q8-delete-before.png)
 ![](q_images/q8-delete-after.png)
+
+
 ## ✨ 9-) Baş harflerine göre sehir listesini getiren sorgu
 ```
 select name from cities
@@ -171,6 +188,7 @@ order by name asc
 ```
 ![](q_images/q9-between.png)
 
+ 
 ## ✨ 10-) Baş harflerine göre sehir listesini getiren sorgu
 ```
 select sum(shipping_price) from baskets
