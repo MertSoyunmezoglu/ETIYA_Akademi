@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "districts")
 public class District {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,7 +22,7 @@ public class District {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "district_id")
+    @JoinColumn(name = "town_id")
     private Town town;
 
     @OneToMany(mappedBy = "district")

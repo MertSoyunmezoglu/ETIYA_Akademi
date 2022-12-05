@@ -4,8 +4,12 @@ import com.etiya.ecommercedemopair7.entities.concretes.Product;
 
 import java.util.List;
 
-public interface ProductService {
+public interface IProductService {
     List<Product> getAll();
 
-    Product getById(int id);
+    Product getById(int productId);
+
+    Product getByName(String name);
+
+    Product customGetByName(String name);
 }

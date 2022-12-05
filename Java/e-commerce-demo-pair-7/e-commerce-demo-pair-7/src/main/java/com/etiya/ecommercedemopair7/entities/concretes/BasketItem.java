@@ -3,7 +3,7 @@ package com.etiya.ecommercedemopair7.entities.concretes;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 @Data
