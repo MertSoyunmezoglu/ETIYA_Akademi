@@ -20,12 +20,12 @@ public class ProductCategory {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    @JsonManagedReference
-    private Product product;
-
-    @ManyToOne
     @JoinColumn(name = "category_id")
     @JsonManagedReference
     private Category category;
+
+    @ManyToOne()
+    @JoinColumn(name = "product_id")
+    @JsonManagedReference
+    private Product product;
 }

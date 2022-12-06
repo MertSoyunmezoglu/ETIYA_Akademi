@@ -8,13 +8,8 @@ import java.util.List;
 
 public interface ICategoryService {
     List<Category> getAll();
-
     Category getById(int categoryId);
-
     Category getByName(String name);
-
     Category customGetByName(String name);
-
     AddCategoryResponse add(AddCategoryRequest addCategoryRequest);
-
 }
