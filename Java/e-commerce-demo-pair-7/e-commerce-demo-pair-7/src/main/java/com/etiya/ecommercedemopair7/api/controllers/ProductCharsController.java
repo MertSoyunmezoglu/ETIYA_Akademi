@@ -2,17 +2,21 @@ package com.etiya.ecommercedemopair7.api.controllers;
 
 import com.etiya.ecommercedemopair7.business.abstracts.IProductCharService;
 
+import com.etiya.ecommercedemopair7.business.constants.Paths;
 import com.etiya.ecommercedemopair7.business.request.productChars.AddProductCharRequest;
 import com.etiya.ecommercedemopair7.business.response.productChars.AddProductCharResponse;
-import com.etiya.ecommercedemopair7.entities.concretes.Product;
-import com.etiya.ecommercedemopair7.entities.concretes.ProductChar;
+import com.etiya.ecommercedemopair7.business.response.productChars.GetAllProductCharResponse;
+import com.etiya.ecommercedemopair7.business.response.productChars.GetProductCharResponse;
+import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/product-chars")
+@RequestMapping(Paths.apiPrefix + "product-chars")
 public class ProductCharsController {
     private IProductCharService productCharService;
 
@@ -21,14 +25,19 @@ public class ProductCharsController {
         this.productCharService = productCharService;
     }
 
+    @GetMapping
+    public DataResult<List<GetAllProductCharResponse>> getAll() {
+        return productCharService.getAll();
+    }
+
     @GetMapping("/{id}")
-    public ProductChar getById(@PathVariable int id){
+    public DataResult<GetProductCharResponse> getById(@PathVariable int id) {
         return productCharService.getById(id);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<AddProductCharResponse> add(@RequestBody AddProductCharRequest addProductCharRequest) {
-        return new ResponseEntity<AddProductCharResponse>(productCharService.add(addProductCharRequest), HttpStatus.CREATED);
+    public ResponseEntity<DataResult<AddProductCharResponse>> add(@RequestBody AddProductCharRequest addProductCharRequest) {
+        return new ResponseEntity<>(productCharService.add(addProductCharRequest), HttpStatus.CREATED);
     }
 }
 

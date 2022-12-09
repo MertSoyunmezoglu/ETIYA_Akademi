@@ -1,18 +1,20 @@
 package com.etiya.ecommercedemopair7.api.controllers;
 
 import com.etiya.ecommercedemopair7.business.abstracts.IBasketItemService;
+import com.etiya.ecommercedemopair7.business.constants.Paths;
 import com.etiya.ecommercedemopair7.business.request.basketItems.AddBasketItemRequest;
 import com.etiya.ecommercedemopair7.business.response.basketItems.AddBasketItemResponse;
+import com.etiya.ecommercedemopair7.business.response.basketItems.GetAllBasketItemResponse;
+import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/basket-items")
+@RequestMapping(Paths.apiPrefix + "basket-items")
 public class BasketItemsController {
     private IBasketItemService basketItemService;
 
@@ -21,8 +23,13 @@ public class BasketItemsController {
         this.basketItemService = basketItemService;
     }
 
+    @GetMapping
+    public DataResult<List<GetAllBasketItemResponse>> getAll() {
+        return basketItemService.getAll();
+    }
+
     @PostMapping("/add")
-    public ResponseEntity<AddBasketItemResponse> add(@RequestBody AddBasketItemRequest addBasketItemRequest) {
-        return new ResponseEntity<AddBasketItemResponse>(basketItemService.add(addBasketItemRequest), HttpStatus.CREATED);
+    public ResponseEntity<DataResult<AddBasketItemResponse>> add(@RequestBody AddBasketItemRequest addBasketItemRequest) {
+        return new ResponseEntity<>(basketItemService.add(addBasketItemRequest), HttpStatus.CREATED);
     }
 }

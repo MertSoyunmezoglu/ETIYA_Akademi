@@ -1,7 +1,12 @@
 package com.etiya.ecommercedemopair7.business.abstracts;
 
-import com.etiya.ecommercedemopair7.entities.concretes.Country;
+import com.etiya.ecommercedemopair7.business.response.countries.GetAllCountryResponse;
+import com.etiya.ecommercedemopair7.business.response.countries.GetCountryResponse;
+import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
+
+import java.util.List;
 
 public interface ICountryService {
-    Country getById(int countryId);
+    DataResult<List<GetAllCountryResponse>> getAll();
+    DataResult<GetCountryResponse> getById(int countryId);
 }

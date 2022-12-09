@@ -1,18 +1,20 @@
 package com.etiya.ecommercedemopair7.api.controllers;
 
 import com.etiya.ecommercedemopair7.business.abstracts.IPaymentTypeService;
+import com.etiya.ecommercedemopair7.business.constants.Paths;
 import com.etiya.ecommercedemopair7.business.request.paymentTypes.AddPaymentTypeRequest;
 import com.etiya.ecommercedemopair7.business.response.paymentTypes.AddPaymentTypeResponse;
+import com.etiya.ecommercedemopair7.business.response.paymentTypes.GetAllPaymentTypeResponse;
+import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/payment-types")
+@RequestMapping(Paths.apiPrefix + "payment-types")
 public class PaymentTypesController {
 
     private IPaymentTypeService paymentTypeService;
@@ -22,8 +24,13 @@ public class PaymentTypesController {
         this.paymentTypeService = paymentTypeService;
     }
 
+    @GetMapping
+    public DataResult<List<GetAllPaymentTypeResponse>> getAll() {
+        return paymentTypeService.getAll();
+    }
+
     @PostMapping("/add")
-    public ResponseEntity<AddPaymentTypeResponse> add(@RequestBody AddPaymentTypeRequest addPaymentTypeRequest) {
-        return new ResponseEntity<AddPaymentTypeResponse>(paymentTypeService.add(addPaymentTypeRequest), HttpStatus.CREATED);
+    public ResponseEntity<DataResult<AddPaymentTypeResponse>> add(@RequestBody AddPaymentTypeRequest addPaymentTypeRequest) {
+        return new ResponseEntity<>(paymentTypeService.add(addPaymentTypeRequest), HttpStatus.CREATED);
     }
 }
