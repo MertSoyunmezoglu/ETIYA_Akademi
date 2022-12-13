@@ -9,6 +9,10 @@ import com.etiya.ecommercedemopair7.business.response.products.GetProductRespons
 import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import com.etiya.ecommercedemopair7.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,23 +32,36 @@ public class ProductsController {
     }
 
     @GetMapping
-    public DataResult<List<GetAllProductResponse>> getAll(){
-        return productService.getAll();
+    public ResponseEntity<DataResult<List<GetAllProductResponse>>> getAll() {
+        return ResponseEntity.ok(productService.getAll());
+    }
+
+    @GetMapping("/pagination")
+    public ResponseEntity<DataResult<Page<GetAllProductResponse>>> getAllWithPagination(@RequestParam("page") int page,
+                                                                          @RequestParam("Pagesize") int pageSize) {
+        Pageable pageable = PageRequest.of(page, pageSize);
+        return ResponseEntity.ok(productService.getAllWithPagination(pageable));
+    }
+    @GetMapping("/slice")
+    public ResponseEntity<DataResult<Slice<Product>>> getAllWithSlice(@RequestParam("page") int page,
+                                                                      @RequestParam("Pagesize") int pageSize) {
+        Pageable pageable = PageRequest.of(page, pageSize);
+        return ResponseEntity.ok(productService.getAllWithSlice(pageable));
     }
 
     @GetMapping("/{id}")
-    public DataResult<GetProductResponse> getById(@PathVariable int id){
-        return productService.getById(id);
+    public ResponseEntity<DataResult<GetProductResponse>> getById(@PathVariable int id) {
+        return ResponseEntity.ok(productService.getById(id));
     }
 
     @GetMapping("get-by-name")
-    public DataResult<Product> getByName(@RequestParam("name") String name){
-        return productService.getByName(name);
+    public ResponseEntity<DataResult<Product>> getByName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(productService.getByName(name));
     }
 
     @GetMapping("custom-get-by-name")
-    public DataResult<Product> customGetByName(@RequestParam("name") String name){
-        return productService.customGetByName(name);
+    public ResponseEntity<DataResult<Product>> customGetByName(@RequestParam("name") String name) {
+        return ResponseEntity.ok(productService.customGetByName(name));
     }
 
     @PostMapping("/add")

@@ -2,8 +2,11 @@ package com.etiya.ecommercedemopair7.business.concretes;
 
 import com.etiya.ecommercedemopair7.business.abstracts.IUserService;
 import com.etiya.ecommercedemopair7.business.constants.Messages;
+import com.etiya.ecommercedemopair7.business.request.users.AddUserRequest;
+import com.etiya.ecommercedemopair7.business.response.users.AddUserResponse;
 import com.etiya.ecommercedemopair7.business.response.users.GetAllUserResponse;
 import com.etiya.ecommercedemopair7.business.response.users.GetUserResponse;
+import com.etiya.ecommercedemopair7.core.utilities.exceptions.BusinessException;
 import com.etiya.ecommercedemopair7.core.utilities.mapping.IModelMapperService;
 import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import com.etiya.ecommercedemopair7.core.utilities.results.SuccessDataResult;
@@ -47,12 +50,23 @@ public class UserManager implements IUserService {
         return new SuccessDataResult<>(checkIfUserExistsById(userId), Messages.User.userReceived);
     }
 
+    @Override
+    public DataResult<AddUserResponse> add(AddUserRequest addUserRequest) {
+        User user = mapper.forRequest().map(addUserRequest, User.class);
+
+        User savedUser = userRepository.save(user);
+
+        AddUserResponse response = mapper.forResponse().map(savedUser, AddUserResponse.class);
+
+        return new SuccessDataResult<>(response, Messages.User.userAdded);
+    }
+
     private User checkIfUserExistsById(int userId) {
         User currentUser;
         try {
             currentUser = this.userRepository.findById(userId).get();
         } catch (Exception e) {
-            throw new RuntimeException(Messages.User.userNotFound);
+            throw new BusinessException(Messages.User.userNotFound);
         }
         return currentUser;
     }

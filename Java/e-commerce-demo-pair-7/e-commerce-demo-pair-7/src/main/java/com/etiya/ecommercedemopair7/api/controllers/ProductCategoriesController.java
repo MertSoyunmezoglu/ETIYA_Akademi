@@ -7,6 +7,7 @@ import com.etiya.ecommercedemopair7.business.response.productCategories.AddProdu
 import com.etiya.ecommercedemopair7.business.response.productCategories.GetAllProductCategoryResponse;
 import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import com.etiya.ecommercedemopair7.entities.concretes.ProductCategory;
+import com.etiya.ecommercedemopair7.entities.dtos.ProductCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,22 +27,27 @@ public class ProductCategoriesController {
     }
 
     @GetMapping
-    public DataResult<List<GetAllProductCategoryResponse>> getAll() {
-        return productCategoryService.getAll();
+    public ResponseEntity<DataResult<List<GetAllProductCategoryResponse>>> getAll() {
+        return ResponseEntity.ok(productCategoryService.getAll());
     }
 
     @GetMapping("/{categoryId}")
-    public DataResult<ProductCategory> getByCategoryId(@PathVariable int categoryId) {
-        return productCategoryService.getByCategoryId(categoryId);
+    public ResponseEntity<DataResult<ProductCategory>> getByCategoryId(@PathVariable int categoryId) {
+        return ResponseEntity.ok(productCategoryService.getByCategoryId(categoryId));
     }
 
     @GetMapping("/get-by-product")
-    public DataResult<ProductCategory> getByProductId(@RequestParam("id") int id) {
-        return productCategoryService.getByProductId(id);
+    public ResponseEntity<DataResult<ProductCategory>> getByProductId(@RequestParam("id") int id) {
+        return ResponseEntity.ok(productCategoryService.getByProductId(id));
     }
 
     @PostMapping("/add")
     public ResponseEntity<DataResult<AddProductCategoryResponse>> add(@RequestBody AddProductCategoryRequest addProductCategoryRequest) {
         return new ResponseEntity<>(productCategoryService.add(addProductCategoryRequest), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/get-product-category-dto")
+    public ResponseEntity<DataResult<List<ProductCategoryDto>>> getProductCategoryDto() {
+        return ResponseEntity.ok(productCategoryService.getProductCategoryDto());
     }
 }

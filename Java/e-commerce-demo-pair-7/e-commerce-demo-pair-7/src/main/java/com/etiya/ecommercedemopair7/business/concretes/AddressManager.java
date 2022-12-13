@@ -8,12 +8,14 @@ import com.etiya.ecommercedemopair7.business.request.addresses.AddAddressRequest
 import com.etiya.ecommercedemopair7.business.response.addresses.AddAddressResponse;
 import com.etiya.ecommercedemopair7.business.response.addresses.GetAddressResponse;
 import com.etiya.ecommercedemopair7.business.response.addresses.GetAllAddressResponse;
+import com.etiya.ecommercedemopair7.core.utilities.exceptions.BusinessException;
 import com.etiya.ecommercedemopair7.core.utilities.mapping.IModelMapperService;
 import com.etiya.ecommercedemopair7.core.utilities.results.DataResult;
 import com.etiya.ecommercedemopair7.core.utilities.results.SuccessDataResult;
 import com.etiya.ecommercedemopair7.entities.concretes.Address;
 import com.etiya.ecommercedemopair7.entities.concretes.Street;
 import com.etiya.ecommercedemopair7.entities.concretes.User;
+import com.etiya.ecommercedemopair7.entities.dtos.AddressDto;
 import com.etiya.ecommercedemopair7.repository.abstracts.IAddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,6 +75,14 @@ public class AddressManager implements IAddressService {
         return new SuccessDataResult<>(response, Messages.Address.addressAdded);
     }
 
+    @Override
+    public DataResult<List<AddressDto>> getAddressDto() {
+        //TODO: Countryname null
+        List<Address> addresses = this.addressRepository.findAll();
+        List<AddressDto> response = addresses.stream().map(address -> mapper.forResponse().map(address, AddressDto.class)).collect(Collectors.toList());
+        return new SuccessDataResult<>(response, Messages.Address.addressesListed);
+    }
+
     private DataResult<User> getUser(int userId) {
         DataResult<User> user = userService.getByUserId(userId);
         return user;
@@ -88,7 +98,7 @@ public class AddressManager implements IAddressService {
         try {
             currentAddress = this.addressRepository.findById(addressId).get();
         } catch (Exception e) {
-            throw new RuntimeException(Messages.Address.addressNotFound);
+            throw new BusinessException(Messages.Address.addressNotFound);
         }
         return currentAddress;
     }
